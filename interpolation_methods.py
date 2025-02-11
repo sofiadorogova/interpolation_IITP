@@ -74,3 +74,45 @@ def nearest_neighbor_interpolation(x, y, x_new):
 
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
 
+
+def lagrange_interpolation(x, y, x_new):
+    """
+    Интерполяция методом Лагранжа.
+
+    Параметры
+    ----------
+    x : array_like
+        Одномерный массив узлов интерполяции (не должно быть повторяющихся значений).
+    y : array_like
+        Одномерный массив значений функции в узлах (x, y).
+    x_new : float или array_like
+        Точки, в которых нужно вычислить интерполированное значение.
+
+    Возвращает
+    -------
+    float или numpy.ndarray
+        Значение(я) интерполяционного многочлена в точках x_new.
+
+    Формула
+    -------
+    L(x) = sum_{j=0}^{n-1} [ y_j * l_j(x) ],
+    где:
+        l_j(x) = product_{m=0, m != j}^{n-1} [ (x - x_m) / (x_j - x_m) ].
+    """
+    x_new_arr = np.array(x_new, ndmin=1, copy=False)
+    n = len(x)
+
+    y_new_arr = np.zeros_like(x_new_arr, dtype=float)
+
+    for i, x_val in enumerate(x_new_arr):
+        Lx = 0.0
+        for j in range(n):
+            lj = 1.0
+            for m in range(n):
+                if m != j:
+                    lj *= (x_val - x[m]) / (x[j] - x[m])
+            Lx += y[j] * lj
+        y_new_arr[i] = Lx
+
+    return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
+
