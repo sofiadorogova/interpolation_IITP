@@ -45,3 +45,32 @@ def linear_interpolation(x, y, x_new):
 
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
 
+
+def nearest_neighbor_interpolation(x, y, x_new):
+    """
+    Интерполяция методом ближайшего соседа.
+
+    Параметры
+    ----------
+    x : array_like
+        Одномерный массив узлов интерполяции.
+    y : array_like
+        Одномерный массив значений функции в узлах (x, y).
+    x_new : float или array_like
+        Точки, в которых нужно вычислить интерполированное значение.
+
+    Возвращает
+    -------
+    float или numpy.ndarray
+        Значение(я) функции в ближайшем узле к точке(ам) x_new.
+    """
+    x_new_arr = np.array(x_new, ndmin=1, copy=False)
+    y_new_arr = np.zeros_like(x_new_arr, dtype=float)
+
+    for i, x_val in enumerate(x_new_arr):
+        distances = np.abs(x - x_val)
+        k = np.argmin(distances)
+        y_new_arr[i] = y[k]
+
+    return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
+
