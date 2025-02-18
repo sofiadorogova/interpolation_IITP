@@ -142,6 +142,9 @@ def demo():
     plt.title('Сравнение методов интерполяции')
     plt.legend()
     plt.grid(True)
+
+    plt.savefig("images/interpolation_comparison.png", dpi=300, bbox_inches="tight")
+
     plt.show()
 
 
