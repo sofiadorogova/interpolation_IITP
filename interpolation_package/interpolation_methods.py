@@ -1,5 +1,6 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+
 
 def linear_interpolation(x, y, x_new):
     """

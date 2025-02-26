@@ -1,11 +1,11 @@
 import argparse
-import numpy as np
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
+import numpy as np
 from interpolation_methods import (
+    lagrange_interpolation,
     linear_interpolation,
     nearest_neighbor_interpolation,
-    lagrange_interpolation
 )
 
 
@@ -66,5 +66,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-#python interpolation_package\cli_interpolation.py --method nearest --n_points 100 --output images/nearest.png
