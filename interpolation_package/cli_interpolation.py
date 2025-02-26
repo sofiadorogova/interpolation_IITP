@@ -66,3 +66,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#python interpolation_package\cli_interpolation.py --method nearest --n_points 100 --output images/nearest.png
