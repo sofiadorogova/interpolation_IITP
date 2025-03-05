@@ -24,6 +24,10 @@ packages = [
   { include = "interpolation_package" }
 ]
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+
 [tool.ruff]
 # Группы правил (или конкретные префиксы), которые мы включаем.
 # - "E" и "F" покрывают многие типичные ошибки, аналогично pycodestyle и pyflakes.
