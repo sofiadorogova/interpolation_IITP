@@ -116,38 +116,3 @@ def lagrange_interpolation(x, y, x_new):
         y_new_arr[i] = Lx
 
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
-
-
-def demo():
-    """
-    Сравнение трёх методов интерполяции на примере точек (x, sin(x)).
-    """
-    # Исходные точки
-    x_vals = np.array([0, 2, 4, 6, 8, 10], dtype=float)
-    y_vals = np.sin(x_vals)
-
-    # Точки, в которых интерполируем
-    x_new = np.linspace(0, 10, 50)
-
-    # Применяем наши реализации
-    y_linear = linear_interpolation(x_vals, y_vals, x_new)
-    y_nearest = nearest_neighbor_interpolation(x_vals, y_vals, x_new)
-    y_lagr = lagrange_interpolation(x_vals, y_vals, x_new)
-
-    # Отображаем результаты
-    plt.figure(figsize=(8, 5))
-    plt.plot(x_vals, y_vals, 'o', label='Исходные точки')
-    plt.plot(x_new, y_linear, '-', label='Линейная')
-    plt.plot(x_new, y_nearest, '--', label='Ближайший сосед')
-    plt.plot(x_new, y_lagr, '-.', label='Лагранжева')
-    plt.title('Сравнение методов интерполяции')
-    plt.legend()
-    plt.grid(True)
-
-    plt.savefig("images/interpolation_comparison.png", dpi=300, bbox_inches="tight")
-
-    plt.show()
-
-
-if __name__ == "__main__":
-    demo()
