@@ -3,28 +3,29 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from interpolation_package.interpolation_methods import (
+    lagrange_interpolation,
     linear_interpolation,
     nearest_neighbor_interpolation,
-    lagrange_interpolation
 )
+
 
 @click.command()
 @click.option(
     "--method",
     type=click.Choice(["linear", "nearest", "lagrange"], case_sensitive=False),
     default="linear",
-    help="Выбор метода интерполяции (linear, nearest или lagrange)."
+    help="Выбор метода интерполяции (linear, nearest или lagrange).",
 )
 @click.option(
     "--n_points",
     type=int,
     default=50,
-    help="Количество точек, на которых будем вычислять интерполяцию."
+    help="Количество точек, на которых будем вычислять интерполяцию.",
 )
 @click.option(
     "--output",
     default="images/interpolation_cli_result.png",
-    help="Путь для сохранения результирующего графика."
+    help="Путь для сохранения результирующего графика.",
 )
 def main(method, n_points, output):
     """
@@ -48,7 +49,6 @@ def main(method, n_points, output):
         y_new = lagrange_interpolation(x_vals, y_vals, x_new)
         label = "Лагранжева"
 
-
     plt.figure(figsize=(8, 5))
     plt.plot(x_vals, y_vals, "o", label="Исходные точки")
     plt.plot(x_new, y_new, "-", label=label)
@@ -60,6 +60,7 @@ def main(method, n_points, output):
     click.echo(f"График сохранён в файл: {output}")
 
     plt.show()
+
 
 if __name__ == "__main__":
     main()
