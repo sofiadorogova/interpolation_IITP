@@ -1,6 +1,8 @@
-import pytest
 import numpy as np
+import pytest
+
 from interpolation_package.interpolation_methods import linear_interpolation
+
 
 def test_linear_basic():
     """
@@ -10,6 +12,7 @@ def test_linear_basic():
     x_vals = np.array([0, 10], dtype=float)
     y_vals = np.array([0, 10], dtype=float)
     assert linear_interpolation(x_vals, y_vals, 5) == 5
+
 
 def test_linear_multiple_points():
     """
@@ -23,6 +26,7 @@ def test_linear_multiple_points():
     result = linear_interpolation(x_vals, y_vals, x_new)
     assert np.allclose(result, expected)
 
+
 def test_linear_out_of_bounds_left():
     """
     Если x_new < x_vals[0], наша реализация берёт y = y_vals[0].
@@ -31,6 +35,7 @@ def test_linear_out_of_bounds_left():
     y_vals = np.array([2, 4], dtype=float)
     assert linear_interpolation(x_vals, y_vals, 0) == 2
 
+
 def test_linear_out_of_bounds_right():
     """
     Если x_new > x_vals[-1], берём y = y_vals[-1].
@@ -38,6 +43,7 @@ def test_linear_out_of_bounds_right():
     x_vals = np.array([2, 4], dtype=float)
     y_vals = np.array([2, 4], dtype=float)
     assert linear_interpolation(x_vals, y_vals, 10) == 4
+
 
 def test_linear_in_the_middle():
     """
@@ -49,4 +55,6 @@ def test_linear_in_the_middle():
     # Участок [0,2], y меняется от 0 до 10 => y = 5 * x
     x_new = 1
     expected = 5
-    assert linear_interpolation(x_vals, y_vals, x_new) == pytest.approx(expected, 0.0001)
+    assert linear_interpolation(x_vals, y_vals, x_new) == pytest.approx(
+        expected, 0.0001
+    )
