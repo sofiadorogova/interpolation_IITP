@@ -244,6 +244,76 @@
         <article role="main" id="furo-main-content">
           <section id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<p>This section provides an overview of the core components within the <code class="docutils literal notranslate"><span class="pre">interpolation_package</span></code> module, including its primary functions used for different types of interpolations.</p>
+<hr class="docutils" />
+<p><em>Overview of Functions</em></p>
+<p>Below are brief introductions to each function provided by the module:</p>
+<ul class="simple">
+<li><p><strong>linear_interpolation</strong>: Performs linear interpolation between known data points.</p></li>
+<li><p><strong>nearest_neighbor_interpolation</strong>: Uses the closest neighboring point to estimate values.</p></li>
+<li><p><strong>lagrange_interpolation</strong>: Applies polynomial-based interpolation via Lagrange polynomials.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Detailed Descriptions</em></p>
+<p>Each function will be described in detail below, along with examples illustrating their typical uses.</p>
+<p>—</p>
+<p><em>1. Function: linear_interpolation</em></p>
+<p><strong>Purpose:</strong>
+Provides linear interpolation between two given points based on input coordinates and corresponding values.</p>
+<p><strong>Arguments:</strong>
+- <strong>x</strong>: An array of nodes where the function is defined.
+- <strong>y</strong>: Corresponding function values at those nodes.
+- <strong>x_new</strong>: New coordinate(s) where we want to interpolate.</p>
+<p><strong>Returns:</strong>
+Interpolated value(s) at specified coordinates.</p>
+<p><strong>Example Use Case:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">interpolation_package.interpolation_methods</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_interpolation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">linear_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: Approximate sine value at x=3</span>
+</pre></div>
+</div>
+<p>—</p>
+<p><em>2. Function: nearest_neighbor_interpolation</em></p>
+<p><strong>Purpose:</strong>
+Selects the nearest neighbor node to determine interpolated values.</p>
+<p><strong>Arguments:</strong>
+- <strong>x</strong>: Array of nodes representing the grid points.
+- <strong>y</strong>: Function values at these nodes.
+- <strong>x_new</strong>: Coordinates for which we need interpolated values.</p>
+<p><strong>Returns:</strong>
+Value(s) obtained through selecting the nearest neighbors.</p>
+<p><strong>Example Use Case:</strong></p>
+<p>—</p>
+<p><em>3. Function: lagrange_interpolation</em></p>
+<p><strong>Purpose:</strong>
+Applies Lagrange polynomial interpolation over multiple data points.</p>
+<p><strong>Arguments:</strong>
+- <strong>x</strong>: Grid points where the function is evaluated.
+- <strong>y</strong>: Values of the function at these grid points.
+- <strong>x_new</strong>: Points where we seek interpolated values.</p>
+<p><strong>Returns:</strong>
+Values computed using Lagrange polynomials.</p>
+<p><strong>Example Use Case:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">interpolation_package.interpolation_methods</span><span class="w"> </span><span class="kn">import</span> <span class="n">lagrange_interpolation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">lagrange_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: Interpolated value using Lagrange polynomials</span>
+</pre></div>
+</div>
+<p>—</p>
+<p><em>Comparison Table</em></p>
+<p>—</p>
+<p><em>Conclusion</em></p>
+<p>This API reference covers the essential details required to effectively utilize the various interpolation techniques offered by the <code class="docutils literal notranslate"><span class="pre">interpolation_package</span></code>. Users should choose the appropriate technique depending on desired accuracy and computational efficiency.</p>
 </section>
 
         </article>
