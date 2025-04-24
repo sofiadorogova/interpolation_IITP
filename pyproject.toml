@@ -14,7 +14,8 @@ dependencies = [
     "ruff (>=0.9.7,<0.10.0)",
     "pillow (>=11.1.0,<12.0.0)",
     "click (>=8.1.8,<9.0.0)",
-    "nox (>=2025.2.9,<2026.0.0)"
+    "nox (>=2025.2.9,<2026.0.0)",
+    "furo (>=2024.8.6,<2025.0.0)"
 ]
 
 
@@ -32,6 +33,9 @@ pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
 nox = "^2025.2.9"
 nox-poetry = "^1.2.0"
+sphinx = "^7.2.6"
+myst-parser = "^2.0.0"
+sphinx-click = "^3.1.0"
 
 [tool.poetry.scripts]
 interp-demo = "interpolation_package.cli_interpolation:main"
