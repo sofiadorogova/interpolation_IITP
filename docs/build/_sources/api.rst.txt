@@ -29,8 +29,11 @@ Each function will be described in detail below, along with examples illustratin
 Provides linear interpolation between two given points based on input coordinates and corresponding values.
 
 **Arguments:**  
+
 - **x**: An array of nodes where the function is defined.
+
 - **y**: Corresponding function values at those nodes.
+
 - **x_new**: New coordinate(s) where we want to interpolate.
 
 **Returns:**  
@@ -57,8 +60,11 @@ Interpolated value(s) at specified coordinates.
 Selects the nearest neighbor node to determine interpolated values.
 
 **Arguments:**  
+
 - **x**: Array of nodes representing the grid points.
+
 - **y**: Function values at these nodes.
+
 - **x_new**: Coordinates for which we need interpolated values.
 
 **Returns:**  
@@ -83,8 +89,11 @@ Value(s) obtained through selecting the nearest neighbors.
 Applies Lagrange polynomial interpolation over multiple data points.
 
 **Arguments:**  
+
 - **x**: Grid points where the function is evaluated.
+
 - **y**: Values of the function at these grid points.
+
 - **x_new**: Points where we seek interpolated values.
 
 **Returns:**  

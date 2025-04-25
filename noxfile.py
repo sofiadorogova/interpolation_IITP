@@ -27,9 +27,9 @@ def lint(session: Session) -> None:
 
 @session(python="3.10")
 def tests(session: Session) -> None:
-    """Запуск тестов через PyTest."""
-    session.install(".", "pytest", "pytest-cov")
-    session.run("pytest", "--cov", PACKAGE, "--cov-report=term-missing", *session.posargs)
+    session.install("pytest", "pytest-cov")
+    session.install(".")
+    session.run("pytest", "--cov", "interpolation_package", *session.posargs)
 
 @session(name="docs", python="3.10")
 def docs(session: Session) -> None:

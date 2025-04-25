@@ -260,10 +260,12 @@
 <p><em>1. Function: linear_interpolation</em></p>
 <p><strong>Purpose:</strong>
 Provides linear interpolation between two given points based on input coordinates and corresponding values.</p>
-<p><strong>Arguments:</strong>
-- <strong>x</strong>: An array of nodes where the function is defined.
-- <strong>y</strong>: Corresponding function values at those nodes.
-- <strong>x_new</strong>: New coordinate(s) where we want to interpolate.</p>
+<p><strong>Arguments:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>: An array of nodes where the function is defined.</p></li>
+<li><p><strong>y</strong>: Corresponding function values at those nodes.</p></li>
+<li><p><strong>x_new</strong>: New coordinate(s) where we want to interpolate.</p></li>
+</ul>
 <p><strong>Returns:</strong>
 Interpolated value(s) at specified coordinates.</p>
 <p><strong>Example Use Case:</strong></p>
@@ -281,10 +283,12 @@ Interpolated value(s) at specified coordinates.</p>
 <p><em>2. Function: nearest_neighbor_interpolation</em></p>
 <p><strong>Purpose:</strong>
 Selects the nearest neighbor node to determine interpolated values.</p>
-<p><strong>Arguments:</strong>
-- <strong>x</strong>: Array of nodes representing the grid points.
-- <strong>y</strong>: Function values at these nodes.
-- <strong>x_new</strong>: Coordinates for which we need interpolated values.</p>
+<p><strong>Arguments:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>: Array of nodes representing the grid points.</p></li>
+<li><p><strong>y</strong>: Function values at these nodes.</p></li>
+<li><p><strong>x_new</strong>: Coordinates for which we need interpolated values.</p></li>
+</ul>
 <p><strong>Returns:</strong>
 Value(s) obtained through selecting the nearest neighbors.</p>
 <p><strong>Example Use Case:</strong></p>
@@ -292,10 +296,12 @@ Value(s) obtained through selecting the nearest neighbors.</p>
 <p><em>3. Function: lagrange_interpolation</em></p>
 <p><strong>Purpose:</strong>
 Applies Lagrange polynomial interpolation over multiple data points.</p>
-<p><strong>Arguments:</strong>
-- <strong>x</strong>: Grid points where the function is evaluated.
-- <strong>y</strong>: Values of the function at these grid points.
-- <strong>x_new</strong>: Points where we seek interpolated values.</p>
+<p><strong>Arguments:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>: Grid points where the function is evaluated.</p></li>
+<li><p><strong>y</strong>: Values of the function at these grid points.</p></li>
+<li><p><strong>x_new</strong>: Points where we seek interpolated values.</p></li>
+</ul>
 <p><strong>Returns:</strong>
 Values computed using Lagrange polynomials.</p>
 <p><strong>Example Use Case:</strong></p>
