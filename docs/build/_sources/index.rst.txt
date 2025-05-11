@@ -13,4 +13,5 @@ This is the official documentation for the Interpolation-IITP Python library.
    installation
    usage
    api
+   performance
    license

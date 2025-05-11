@@ -1,13 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head>
-<meta charset="utf-8"/>
+  <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="#" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Usage" href="usage.html" /><link rel="prev" title="Introduction" href="introduction.html" />
 
     <!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
-<meta name="robots" content="noindex" />
-<title>Search - Interpolation-IITP 0.1.0 documentation</title><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+        <title>Installation - Interpolation-IITP 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -192,16 +192,16 @@
   
   <span class="sidebar-brand-text">Interpolation-IITP 0.1.0 documentation</span>
   
-</a><form class="sidebar-search-container" method="get" action="#" role="search">
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Metrics</a></li>
@@ -225,7 +225,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/installation.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -240,25 +246,61 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<noscript>
-<div class="admonition error">
-  <p class="admonition-title">Error</p>
-  <p>
-    Please activate JavaScript to enable the search functionality.
-  </p>
+          <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<p>There are several ways to install the Interpolation-IITP library. We recommend installing via <strong>Poetry</strong>, but other options are also supported.</p>
+<hr class="docutils" />
+<p>### Using Poetry</p>
+<p>If you have <strong>Poetry</strong> already installed, simply clone the repository and navigate to the root folder:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/your_username/interpolation_iitp.git</span>
+<span class="go">cd interpolation_iitp</span>
+</pre></div>
 </div>
-</noscript>
-
-<div id="search-results"></div>
+<p>Then install the package directly:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry install</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>### Alternative Methods</p>
+<p>Alternatively, you may install the library manually using <strong>pip</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install interpolation-iitp</span>
+</pre></div>
+</div>
+<p>However, note that manual installations might require additional configuration for dependency management.</p>
+<hr class="docutils" />
+<p>### Verifying Installation</p>
+<p>Once installed, verify everything works correctly by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">interpolation_package</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">interpolation_package</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="usage.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Usage</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="introduction.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Introduction</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -287,8 +329,5 @@
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
-    
-<script src="_static/searchtools.js"></script>
-<script src="_static/language_data.js"></script>
-<script src="searchindex.js"></script></body>
+    </body>
 </html>

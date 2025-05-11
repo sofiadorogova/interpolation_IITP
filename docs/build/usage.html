@@ -1,13 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head>
-<meta charset="utf-8"/>
+  <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="#" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API Reference" href="api.html" /><link rel="prev" title="Installation" href="installation.html" />
 
     <!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
-<meta name="robots" content="noindex" />
-<title>Search - Interpolation-IITP 0.1.0 documentation</title><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+        <title>Usage - Interpolation-IITP 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -192,17 +192,17 @@
   
   <span class="sidebar-brand-text">Interpolation-IITP 0.1.0 documentation</span>
   
-</a><form class="sidebar-search-container" method="get" action="#" role="search">
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License Information</a></li>
@@ -225,7 +225,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/usage.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -240,25 +246,99 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<noscript>
-<div class="admonition error">
-  <p class="admonition-title">Error</p>
-  <p>
-    Please activate JavaScript to enable the search functionality.
-  </p>
+          <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+<p>This section demonstrates how to use the Interpolation-IITP library effectively. We’ll cover each of the interpolation methods included in the package.</p>
+<hr class="docutils" />
+<p>### Importing the Library</p>
+<p>Firstly, let’s import the necessary modules:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">interpolation_package.interpolation_methods</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">linear_interpolation</span><span class="p">,</span>
+    <span class="n">nearest_neighbor_interpolation</span><span class="p">,</span>
+    <span class="n">lagrange_interpolation</span>
+<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
 </div>
-</noscript>
+<hr class="docutils" />
+<p>### Example 1: Linear Interpolation</p>
+<p>Linear interpolation estimates values between two known points linearly.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define sample data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<div id="search-results"></div>
+<span class="c1"># Point where we want to interpolate</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Perform linear interpolation</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">linear_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: Approximation of sin(3)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>### Example 2: Nearest Neighbor Interpolation</p>
+<p>Nearest neighbor interpolation selects the value of the nearest point to the target location.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Same data as before</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Another point for interpolation</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="mf">5.5</span>
+
+<span class="c1"># Perform nearest neighbor interpolation</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">nearest_neighbor_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: The exact value of the nearest point</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>### Example 3: Lagrange Interpolation</p>
+<p>Lagrange interpolation fits a polynomial curve passing through all data points.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Larger dataset</span>
+<span class="n">x_large</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">y_large</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_large</span><span class="p">)</span>
+
+<span class="c1"># Point for interpolation</span>
+<span class="n">x_query</span> <span class="o">=</span> <span class="mf">3.75</span>
+
+<span class="c1"># Perform Lagrange interpolation</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">lagrange_interpolation</span><span class="p">(</span><span class="n">x_large</span><span class="p">,</span> <span class="n">y_large</span><span class="p">,</span> <span class="n">x_query</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: Estimated value at x=3.75</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>### Tips for Better Results</p>
+<ul class="simple">
+<li><p>Ensure that your input data is well-ordered and free of inconsistencies.</p></li>
+<li><p>Choose the right interpolation method according to your problem domain.</p></li>
+<li><p>Consider preprocessing noisy data sets before applying interpolation.</p></li>
+</ul>
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="api.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">API Reference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="installation.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Installation</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -287,8 +367,5 @@
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
-    
-<script src="_static/searchtools.js"></script>
-<script src="_static/language_data.js"></script>
-<script src="searchindex.js"></script></body>
+    </body>
 </html>

@@ -57,6 +57,7 @@ def coverage_report(session):
 @session(name="docs", python="3.10")
 def docs(session: Session) -> None:
     """Сборка документации с помощью Sphinx."""
+    session.install("sphinx", "myst-parser", "sphinx-click", "furo")
     session.chdir("docs/")
     session.run("sphinx-build", "-b", "html", "./source", "./build")
 

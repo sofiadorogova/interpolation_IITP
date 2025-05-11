@@ -41,6 +41,7 @@ mypy = "^1.10.0"
 
 [tool.poetry.scripts]
 interp-demo = "interpolation_package.cli_interpolation:main"
+measure-performance = "scripts.performance_measure:main"
 
 [tool.ruff]
 select = ["E", "F", "B", "I", "C90"]
