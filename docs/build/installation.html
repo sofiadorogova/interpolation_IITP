@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -240,7 +240,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -249,8 +249,8 @@
           <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p>There are several ways to install the Interpolation-IITP library. We recommend installing via <strong>Poetry</strong>, but other options are also supported.</p>
-<hr class="docutils" />
-<p>### Using Poetry</p>
+<section id="using-poetry">
+<h2>Using Poetry<a class="headerlink" href="#using-poetry" title="Link to this heading">¶</a></h2>
 <p>If you have <strong>Poetry</strong> already installed, simply clone the repository and navigate to the root folder:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/your_username/interpolation_iitp.git</span>
 <span class="go">cd interpolation_iitp</span>
@@ -260,20 +260,23 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry install</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p>### Alternative Methods</p>
+</section>
+<section id="alternative-methods">
+<h2>Alternative Methods<a class="headerlink" href="#alternative-methods" title="Link to this heading">¶</a></h2>
 <p>Alternatively, you may install the library manually using <strong>pip</strong>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install interpolation-iitp</span>
 </pre></div>
 </div>
 <p>However, note that manual installations might require additional configuration for dependency management.</p>
-<hr class="docutils" />
-<p>### Verifying Installation</p>
+</section>
+<section id="verifying-installation">
+<h2>Verifying Installation<a class="headerlink" href="#verifying-installation" title="Link to this heading">¶</a></h2>
 <p>Once installed, verify everything works correctly by running:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">interpolation_package</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">interpolation_package</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
 </section>
 
         </article>
@@ -319,8 +322,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#using-poetry">Using Poetry</a></li>
+<li><a class="reference internal" href="#alternative-methods">Alternative Methods</a></li>
+<li><a class="reference internal" href="#verifying-installation">Verifying Installation</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

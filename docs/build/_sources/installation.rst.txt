@@ -3,9 +3,8 @@ Installation
 
 There are several ways to install the Interpolation-IITP library. We recommend installing via **Poetry**, but other options are also supported.
 
-------------------------
-
-### Using Poetry
+Using Poetry
+------------
 
 If you have **Poetry** already installed, simply clone the repository and navigate to the root folder:
 
@@ -20,9 +19,8 @@ Then install the package directly:
 
     poetry install
 
-------------------------
-
-### Alternative Methods
+Alternative Methods
+-------------------
 
 Alternatively, you may install the library manually using **pip**:
 
@@ -32,9 +30,8 @@ Alternatively, you may install the library manually using **pip**:
 
 However, note that manual installations might require additional configuration for dependency management.
 
-------------------------
-
-### Verifying Installation
+Verifying Installation
+----------------------
 
 Once installed, verify everything works correctly by running:
 

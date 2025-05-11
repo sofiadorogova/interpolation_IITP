@@ -3,131 +3,120 @@ API Reference
 
 .. currentmodule:: interpolation_package.interpolation_methods
 
-This section provides an overview of the core components within the ``interpolation_package`` module, including its primary functions used for different types of interpolations.
+This section provides an overview of the core functions within the ``interpolation_package`` module.
 
--------------------------------
+Overview of Functions
+---------------------
 
-*Overview of Functions*
-
-Below are brief introductions to each function provided by the module:
+Below are brief descriptions of each function:
 
 - **linear_interpolation**: Performs linear interpolation between known data points.
-- **nearest_neighbor_interpolation**: Uses the closest neighboring point to estimate values.
-- **lagrange_interpolation**: Applies polynomial-based interpolation via Lagrange polynomials.
+- **nearest_neighbor_interpolation**: Estimates values by choosing the nearest known data point.
+- **lagrange_interpolation**: Applies polynomial interpolation via Lagrange polynomials.
 
----------------------------------
+Detailed Descriptions
+---------------------
 
-*Detailed Descriptions*
+Each function is described in detail below, along with examples.
 
-Each function will be described in detail below, along with examples illustrating their typical uses.
-
----
-
-*1. Function: linear_interpolation*
+Linear Interpolation
+~~~~~~~~~~~~~~~~~~~~
 
 **Purpose:**  
-Provides linear interpolation between two given points based on input coordinates and corresponding values.
+Performs linear interpolation between two known data points.
 
-**Arguments:**  
+**Arguments:**
 
-- **x**: An array of nodes where the function is defined.
-
-- **y**: Corresponding function values at those nodes.
-
-- **x_new**: New coordinate(s) where we want to interpolate.
+- **x**: Array of nodes where the function is defined.
+- **y**: Corresponding function values at these nodes.
+- **x_new**: New coordinate(s) where interpolation is required.
 
 **Returns:**  
-Interpolated value(s) at specified coordinates.
+Interpolated value(s) at the specified coordinates.
 
-**Example Use Case:**  
+**Example:**
 
 .. code-block:: python
 
-    from interpolation_package.interpolation_methods import linear_interpolation
     import numpy as np
+    from interpolation_package.interpolation_methods import linear_interpolation
 
     x = np.array([0, 2, 4, 6, 8, 10])
     y = np.sin(x)
     x_new = 3
     result = linear_interpolation(x, y, x_new)
-    print(result)  # Output: Approximate sine value at x=3
+    print(result)  # Approximate sine value at x=3
 
----
-
-*2. Function: nearest_neighbor_interpolation*
+Nearest Neighbor Interpolation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Purpose:**  
-Selects the nearest neighbor node to determine interpolated values.
+Determines interpolated values based on the nearest neighbor.
 
-**Arguments:**  
+**Arguments:**
 
-- **x**: Array of nodes representing the grid points.
-
-- **y**: Function values at these nodes.
-
-- **x_new**: Coordinates for which we need interpolated values.
+- **x**: Array of grid points.
+- **y**: Function values at these points.
+- **x_new**: Coordinate(s) for interpolation.
 
 **Returns:**  
-Value(s) obtained through selecting the nearest neighbors.
+Value(s) from the nearest neighbor points.
 
-**Example Use Case:**  
+**Example:**
 
-.. code-block:: python from interpolation_package.interpolation_methods import nearest_neighbor_interpolation
+.. code-block:: python
+
     import numpy as np
+    from interpolation_package.interpolation_methods import nearest_neighbor_interpolation
 
     x = np.array([0, 2, 4, 6, 8, 10])
     y = np.sin(x)
     x_new = 3
     result = nearest_neighbor_interpolation(x, y, x_new)
-    print(result)  # Output: Value from the nearest point to x_new
+    print(result)  # Value from nearest point to x_new
 
----
-
-*3. Function: lagrange_interpolation*
+Lagrange Interpolation
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Purpose:**  
-Applies Lagrange polynomial interpolation over multiple data points.
+Applies polynomial interpolation using Lagrange polynomials.
 
-**Arguments:**  
+**Arguments:**
 
-- **x**: Grid points where the function is evaluated.
-
-- **y**: Values of the function at these grid points.
-
-- **x_new**: Points where we seek interpolated values.
+- **x**: Grid points.
+- **y**: Values of the function at these points.
+- **x_new**: Coordinates where interpolation is required.
 
 **Returns:**  
-Values computed using Lagrange polynomials.
+Interpolated values computed using Lagrange polynomials.
 
-**Example Use Case:**  
+**Example:**
 
 .. code-block:: python
 
-    from interpolation_package.interpolation_methods import lagrange_interpolation
     import numpy as np
+    from interpolation_package.interpolation_methods import lagrange_interpolation
 
     x = np.array([0, 2, 4, 6, 8, 10])
     y = np.sin(x)
     x_new = 3
     result = lagrange_interpolation(x, y, x_new)
-    print(result)  # Output: Interpolated value using Lagrange polynomials
+    print(result)  # Interpolated value at x=3
 
----
+Comparison Table
+----------------
 
-*Comparison Table*
++-------------------------+------------------+-----------------------------------------+
+| Method                  | Complexity       | Advantages                              |
++=========================+==================+=========================================+
+| Linear Interpolation    | Low              | Fast computation                        |
++-------------------------+------------------+-----------------------------------------+
+| Nearest Neighbor        | Medium           | Simple and intuitive                    |
++-------------------------+------------------+-----------------------------------------+
+| Lagrange Polynomial     | High             | Accurate interpolation for small data   |
++-------------------------+------------------+-----------------------------------------+
 
-+-------------------------+------------------+----------------------------------------+
-| Method                  | Complexity       | Advantages                             |
-+=========================+==================+========================================+
-| Linear Interpolation    | Low              | Fast computation                       |
-+-------------------------+------------------+----------------------------------------+
-| Nearest Neighbor        | Medium           | Simple implementation                   |
-+-------------------------+------------------+----------------------------------------+
-| Lagrange Polynomial     | High             | More accurate results when needed       |
-+-------------------------+------------------+----------------------------------------+
+Conclusion
+----------
 
----
-
-*Conclusion*
-
-This API reference covers the essential details required to effectively utilize the various interpolation techniques offered by the ``interpolation_package``. Users should choose the appropriate technique depending on desired accuracy and computational efficiency.
+This API reference provides details to effectively use the interpolation methods provided by ``interpolation_package``. Choose a method according to your requirements on accuracy and performance.
