@@ -3,7 +3,7 @@ Performance Metrics
 
 This page compares the execution time of interpolation methods as the number of data points increases.
 
-.. image:: images/performance_metrics.png
+.. image:: /images/performance_metrics.png
     :alt: Performance comparison of interpolation methods
     :width: 700px
 

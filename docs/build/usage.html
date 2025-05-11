@@ -248,7 +248,7 @@
         <article role="main" id="furo-main-content">
           <section id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
-<p>This section demonstrates how to use the Interpolation-IITP library effectively. We’ll cover each of the interpolation methods included in the package.</p>
+<p>This section demonstrates how to use the Interpolation-IITP library effectively. We’ll cover each of the interpolation methods included in the package, along with their mathematical formulations.</p>
 <section id="importing-the-library">
 <h2>Importing the Library<a class="headerlink" href="#importing-the-library" title="Link to this heading">¶</a></h2>
 <p>Firstly, let’s import the necessary modules:</p>
@@ -261,60 +261,67 @@
 </pre></div>
 </div>
 </section>
-<section id="example-1-linear-interpolation">
-<h2>Example 1: Linear Interpolation<a class="headerlink" href="#example-1-linear-interpolation" title="Link to this heading">¶</a></h2>
-<p>Linear interpolation estimates values between two known points linearly.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define sample data</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<section id="linear-interpolation">
+<h2>Linear Interpolation<a class="headerlink" href="#linear-interpolation" title="Link to this heading">¶</a></h2>
+<p>Linear interpolation estimates values between two known points linearly. The interpolation formula is:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[y = y_i + \frac{(x - x_i)}{(x_{i+1} - x_i)} \cdot (y_{i+1} - y_i)\]</div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Point where we want to interpolate</span>
 <span class="n">x_new</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="c1"># Perform linear interpolation</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">linear_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: Approximation of sin(3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Approximation of sin(3)</span>
 </pre></div>
 </div>
 </section>
-<section id="example-2-nearest-neighbor-interpolation">
-<h2>Example 2: Nearest Neighbor Interpolation<a class="headerlink" href="#example-2-nearest-neighbor-interpolation" title="Link to this heading">¶</a></h2>
-<p>Nearest neighbor interpolation selects the value of the nearest point to the target location.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Same data as before</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<section id="nearest-neighbor-interpolation">
+<h2>Nearest Neighbor Interpolation<a class="headerlink" href="#nearest-neighbor-interpolation" title="Link to this heading">¶</a></h2>
+<p>Nearest neighbor interpolation selects the value of the nearest known data point. Formally, it can be defined as:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[y = y_i,\quad \text{where}\quad |x - x_i| = \min_j |x - x_j|\]</div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Another point for interpolation</span>
 <span class="n">x_new</span> <span class="o">=</span> <span class="mf">5.5</span>
 
-<span class="c1"># Perform nearest neighbor interpolation</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">nearest_neighbor_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: The exact value of the nearest point</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># The exact value of the nearest point</span>
 </pre></div>
 </div>
 </section>
-<section id="example-3-lagrange-interpolation">
-<h2>Example 3: Lagrange Interpolation<a class="headerlink" href="#example-3-lagrange-interpolation" title="Link to this heading">¶</a></h2>
-<p>Lagrange interpolation fits a polynomial curve passing through all data points.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Larger dataset</span>
-<span class="n">x_large</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<section id="lagrange-interpolation">
+<h2>Lagrange Interpolation<a class="headerlink" href="#lagrange-interpolation" title="Link to this heading">¶</a></h2>
+<p>Lagrange interpolation fits a polynomial curve passing through all data points. The general formula is:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}L(x) = \sum_{j=0}^{n-1} y_j \cdot \ell_j(x),\quad\text{where}\quad
+\ell_j(x) = \prod_{\substack{0 \le m \le n-1 \\ m \neq j}}
+\frac{x - x_m}{x_j - x_m}\end{split}\]</div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_large</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">y_large</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_large</span><span class="p">)</span>
-
-<span class="c1"># Point for interpolation</span>
 <span class="n">x_query</span> <span class="o">=</span> <span class="mf">3.75</span>
 
-<span class="c1"># Perform Lagrange interpolation</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">lagrange_interpolation</span><span class="p">(</span><span class="n">x_large</span><span class="p">,</span> <span class="n">y_large</span><span class="p">,</span> <span class="n">x_query</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: Estimated value at x=3.75</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Estimated value at x=3.75</span>
 </pre></div>
 </div>
 </section>
-<section id="tips-for-better-results">
-<h2>Tips for Better Results<a class="headerlink" href="#tips-for-better-results" title="Link to this heading">¶</a></h2>
+<section id="comparison-of-interpolation-methods">
+<h2>Comparison of Interpolation Methods<a class="headerlink" href="#comparison-of-interpolation-methods" title="Link to this heading">¶</a></h2>
+<p>The following image demonstrates a visual comparison of linear, nearest neighbor, and Lagrange interpolation methods applied to the sine function:</p>
+<a class="reference internal image-reference" href="_images/interpolation_comparison.png"><img alt="Comparison of interpolation methods" src="_images/interpolation_comparison.png" style="width: 700px;" /></a>
 <ul class="simple">
-<li><p>Ensure that your input data is well-ordered and free of inconsistencies.</p></li>
-<li><p>Choose the right interpolation method according to your problem domain.</p></li>
-<li><p>Consider preprocessing noisy data sets before applying interpolation.</p></li>
+<li><p><strong>Linear Interpolation:</strong> Quick, piecewise-linear approximation.</p></li>
+<li><p><strong>Nearest Neighbor Interpolation:</strong> Stepwise, simple, efficient for discrete data.</p></li>
+<li><p><strong>Lagrange Interpolation:</strong> Smooth polynomial approximation, accurate but may oscillate significantly between points.</p></li>
 </ul>
 </section>
 </section>
@@ -376,10 +383,10 @@
             <ul>
 <li><a class="reference internal" href="#">Usage</a><ul>
 <li><a class="reference internal" href="#importing-the-library">Importing the Library</a></li>
-<li><a class="reference internal" href="#example-1-linear-interpolation">Example 1: Linear Interpolation</a></li>
-<li><a class="reference internal" href="#example-2-nearest-neighbor-interpolation">Example 2: Nearest Neighbor Interpolation</a></li>
-<li><a class="reference internal" href="#example-3-lagrange-interpolation">Example 3: Lagrange Interpolation</a></li>
-<li><a class="reference internal" href="#tips-for-better-results">Tips for Better Results</a></li>
+<li><a class="reference internal" href="#linear-interpolation">Linear Interpolation</a></li>
+<li><a class="reference internal" href="#nearest-neighbor-interpolation">Nearest Neighbor Interpolation</a></li>
+<li><a class="reference internal" href="#lagrange-interpolation">Lagrange Interpolation</a></li>
+<li><a class="reference internal" href="#comparison-of-interpolation-methods">Comparison of Interpolation Methods</a></li>
 </ul>
 </li>
 </ul>
@@ -395,5 +402,6 @@
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

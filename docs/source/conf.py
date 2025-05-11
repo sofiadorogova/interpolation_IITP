@@ -18,5 +18,5 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 html_theme = 'furo'  # Современная красивая тема Furo
-html_static_path = ['_static']
+html_static_path = ['_static', 'images']
 intersphinx_mapping = {'python': ('https://docs.python.org/3/', None)}
