@@ -1,3 +1,4 @@
+import coverage
 import numpy as np
 import pytest
 

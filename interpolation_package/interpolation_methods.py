@@ -115,3 +115,5 @@ def lagrange_interpolation(x, y, x_new):
         y_new_arr[i] = Lx
 
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
+
+

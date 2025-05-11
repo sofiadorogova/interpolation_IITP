@@ -1,3 +1,4 @@
+import coverage
 import numpy as np
 
 from interpolation_package.interpolation_methods import nearest_neighbor_interpolation
@@ -61,3 +62,4 @@ def test_nearest_more_points():
 
     result = nearest_neighbor_interpolation(x, y, x_new)
     assert np.allclose(result, expected)
+

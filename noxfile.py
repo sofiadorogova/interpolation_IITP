@@ -1,6 +1,10 @@
 import nox
 from nox_poetry import Session, session
 
+DOCS_DIR = 'docs'
+TEST_DIR = 'tests'
+COVERAGE_FILE = '.coverage'
+
 PACKAGE = "interpolation_package"
 
 nox.options.sessions = ["format", "lint", "tests", "docs"]
@@ -26,10 +30,22 @@ def lint(session: Session) -> None:
     session.run("ruff", "check", *LOCATIONS)
 
 @session(python="3.10")
-def tests(session: Session) -> None:
-    session.install("pytest", "pytest-cov")
-    session.install(".")
-    session.run("pytest", "--cov", "interpolation_package", *session.posargs)
+def tests(session):
+    """Запуск всех тестов"""
+    session.run(
+        "pytest",
+        TEST_DIR,
+        f"--cov={PACKAGE}",
+        "-v",
+        env={"COVERAGE_FILE": COVERAGE_FILE},
+    )
+
+@nox.session(python="3.10")
+def coverage_report(session):
+    """Генерация отчета по покрытию тестов"""
+    session.install("coverage[toml]")
+    session.run("coverage", "report", "-m")
+    session.run("coverage", "html", "-d", "htmlcov") 
 
 @session(name="docs", python="3.10")
 def docs(session: Session) -> None:
