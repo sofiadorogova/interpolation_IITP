@@ -7,7 +7,7 @@ COVERAGE_FILE = ".coverage"
 
 PACKAGE = "interpolation_package"
 
-nox.options.sessions = ["format", "lint", "tests", "docs"]
+nox.options.sessions = ["format", "lint", "tests", "docs", "typechecks"]
 
 LOCATIONS = [
     PACKAGE,
@@ -59,3 +59,10 @@ def docs(session: Session) -> None:
     """Сборка документации с помощью Sphinx."""
     session.chdir("docs/")
     session.run("sphinx-build", "-b", "html", "./source", "./build")
+
+@session(python="3.10")
+def typechecks(session: Session) -> None:
+    """Запуск статической проверки типов с помощью mypy."""
+    session.install("mypy")
+    session.install(".")
+    session.run("mypy", "--explicit-package-bases", PACKAGE)
