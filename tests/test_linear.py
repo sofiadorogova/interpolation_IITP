@@ -1,4 +1,3 @@
-import coverage
 import numpy as np
 import pytest
 
@@ -60,17 +59,17 @@ def test_linear_in_the_middle():
         expected, 0.0001
     )
 
+
 def test_linear_interpolation_middle_interval():
     x = np.array([0, 10, 20, 30])
     y = np.array([0, 100, 200, 300])
 
-    # Выбираем точку, лежащую во втором или третьем интервале, 
+    # Выбираем точку, лежащую во втором или третьем интервале,
     # например между 10 и 20
-    x_val = 15  # Это гарантирует проход первой итерации (0->10 не подходит), 
-                # и попадание на второй итерации (10->20 подходит)
+    x_val = 15  # Это гарантирует проход первой итерации (0->10 не подходит),
+    # и попадание на второй итерации (10->20 подходит)
 
     result = linear_interpolation(x, y, x_val)
 
     expected_result = 150  # так как это ровно середина между 100 и 200
     assert result == expected_result
-

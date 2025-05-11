@@ -1,9 +1,9 @@
 import nox
 from nox_poetry import Session, session
 
-DOCS_DIR = 'docs'
-TEST_DIR = 'tests'
-COVERAGE_FILE = '.coverage'
+DOCS_DIR = "docs"
+TEST_DIR = "tests"
+COVERAGE_FILE = ".coverage"
 
 PACKAGE = "interpolation_package"
 
@@ -17,17 +17,20 @@ LOCATIONS = [
 
 DOCS_LOCATIONS = ["docs/source"]  # Локации для документов
 
+
 @session(python="3.10")
 def format(session: Session) -> None:
     """Запуск автоформатирования Ruff."""
     session.install("ruff")
     session.run("ruff", "format", *LOCATIONS)
 
+
 @session(python="3.10")
 def lint(session: Session) -> None:
     """Проверка стиля кода и импорта."""
     session.install("ruff")
     session.run("ruff", "check", *LOCATIONS)
+
 
 @session(python="3.10")
 def tests(session):
@@ -40,12 +43,14 @@ def tests(session):
         env={"COVERAGE_FILE": COVERAGE_FILE},
     )
 
+
 @nox.session(python="3.10")
 def coverage_report(session):
     """Генерация отчета по покрытию тестов"""
     session.install("coverage[toml]")
     session.run("coverage", "report", "-m")
-    session.run("coverage", "html", "-d", "htmlcov") 
+    session.run("coverage", "html", "-d", "htmlcov")
+
 
 @session(name="docs", python="3.10")
 def docs(session: Session) -> None:
