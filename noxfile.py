@@ -27,9 +27,9 @@ def format(session: Session) -> None:
 
 @session(python="3.10")
 def lint(session: Session) -> None:
-    """Проверка стиля кода и импорта."""
+    """Проверка и автоматическое исправление стиля кода."""
     session.install("ruff")
-    session.run("ruff", "check", *LOCATIONS)
+    session.run("ruff", "check", "--fix", *LOCATIONS)
 
 
 @session(python="3.10")
@@ -39,6 +39,8 @@ def tests(session):
         "pytest",
         TEST_DIR,
         f"--cov={PACKAGE}",
+        "--cov-report=term-missing",
+        "--cov-report=html",
         "-v",
         env={"COVERAGE_FILE": COVERAGE_FILE},
     )

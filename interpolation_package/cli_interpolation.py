@@ -1,4 +1,12 @@
+import os
+
 import click
+import matplotlib
+
+# Всегда использовать Agg, если запущено в среде без GUI или в тестах
+if os.environ.get("TESTING", "0") == "1":
+    matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -28,11 +36,6 @@ from interpolation_package.interpolation_methods import (
     help="Путь для сохранения результирующего графика.",
 )
 def main(method, n_points, output):
-    """
-    Пример CLI для запуска различных методов интерполяции.
-    Используется библиотека Click вместо argparse.
-    """
-
     x_vals = np.array([0, 2, 4, 6, 8, 10], dtype=float)
     y_vals = np.sin(x_vals)
 
@@ -59,7 +62,9 @@ def main(method, n_points, output):
     plt.savefig(output, dpi=300, bbox_inches="tight")
     click.echo(f"График сохранён в файл: {output}")
 
-    plt.show()
+    # Показываем окно только если backend не Agg
+    if matplotlib.get_backend() != "Agg":
+        plt.show()
 
 
 if __name__ == "__main__":
