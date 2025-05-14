@@ -16,7 +16,7 @@ def test_cli_linear():
 
     # Проверка что программа завершилась успешно
     assert result.exit_code == 0
-    assert "График сохранён" in result.output
+    assert "Plot saved to file" in result.output
 
     # Проверка, что график создан
     assert os.path.exists(output_path)
@@ -33,7 +33,7 @@ def test_cli_lagrange():
     )
 
     assert result.exit_code == 0
-    assert "График сохранён" in result.output
+    assert "Plot saved to file" in result.output
     assert os.path.exists(output_path)
     os.remove(output_path)
 
@@ -46,7 +46,7 @@ def test_cli_nearest():
     )
 
     assert result.exit_code == 0
-    assert "График сохранён" in result.output
+    assert "Plot saved to file" in result.output
     assert os.path.exists(output_path)
 
     os.remove(output_path)
