@@ -12,11 +12,11 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
     'sphinx_click',
-    'myst_parser',  # Для поддержки Markdown в документации
+    'myst_parser',
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
-html_theme = 'furo'  # Современная красивая тема Furo
+html_theme = 'furo'
 html_static_path = ['_static', 'images']
 intersphinx_mapping = {'python': ('https://docs.python.org/3/', None)}

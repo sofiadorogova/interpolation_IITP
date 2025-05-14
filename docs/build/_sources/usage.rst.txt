@@ -17,6 +17,14 @@ Firstly, let's import the necessary modules:
     )
     import numpy as np
 
+Interpolation CLI Usage
+-----------------------
+
+The Interpolation-IITP library provides command-line interface (CLI) tools for convenience.
+
+.. click:: interpolation_package.cli_interpolation:main
+   :prog: interp-demo
+
 Linear Interpolation
 --------------------
 

@@ -15,7 +15,7 @@ LOCATIONS = [
     "noxfile.py",
 ]
 
-DOCS_LOCATIONS = ["docs/source"]  # Локации для документов
+DOCS_LOCATIONS = ["docs/source"]
 
 
 @session(python="3.10")
@@ -58,8 +58,10 @@ def coverage_report(session):
 def docs(session: Session) -> None:
     """Сборка документации с помощью Sphinx."""
     session.install("sphinx", "myst-parser", "sphinx-click", "furo")
+    session.install(".")
     session.chdir("docs/")
     session.run("sphinx-build", "-b", "html", "./source", "./build")
+
 
 @session(python="3.10")
 def typechecks(session: Session) -> None:

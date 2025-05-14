@@ -261,6 +261,40 @@
 </pre></div>
 </div>
 </section>
+<section id="interpolation-cli-usage">
+<h2>Interpolation CLI Usage<a class="headerlink" href="#interpolation-cli-usage" title="Link to this heading">¶</a></h2>
+<p>The Interpolation-IITP library provides command-line interface (CLI) tools for convenience.</p>
+<section id="interp-demo">
+<h3>interp-demo<a class="headerlink" href="#interp-demo" title="Link to this heading">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>interp-demo<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-interp-demo-method">
+<span class="sig-name descname"><span class="pre">--method</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;method&gt;</span></span><a class="headerlink" href="#cmdoption-interp-demo-method" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolation method to use (linear, nearest, or lagrange).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><p>linear | nearest | lagrange</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-interp-demo-n_points">
+<span class="sig-name descname"><span class="pre">--n_points</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;n_points&gt;</span></span><a class="headerlink" href="#cmdoption-interp-demo-n_points" title="Link to this definition">¶</a></dt>
+<dd><p>Number of points to evaluate the interpolation at.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-interp-demo-output">
+<span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><a class="headerlink" href="#cmdoption-interp-demo-output" title="Link to this definition">¶</a></dt>
+<dd><p>File path to save the resulting plot.</p>
+</dd></dl>
+
+</section>
+</section>
 <section id="linear-interpolation">
 <h2>Linear Interpolation<a class="headerlink" href="#linear-interpolation" title="Link to this heading">¶</a></h2>
 <p>Linear interpolation estimates values between two known points linearly. The interpolation formula is:</p>
@@ -383,6 +417,10 @@
             <ul>
 <li><a class="reference internal" href="#">Usage</a><ul>
 <li><a class="reference internal" href="#importing-the-library">Importing the Library</a></li>
+<li><a class="reference internal" href="#interpolation-cli-usage">Interpolation CLI Usage</a><ul>
+<li><a class="reference internal" href="#interp-demo">interp-demo</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#linear-interpolation">Linear Interpolation</a></li>
 <li><a class="reference internal" href="#nearest-neighbor-interpolation">Nearest Neighbor Interpolation</a></li>
 <li><a class="reference internal" href="#lagrange-interpolation">Lagrange Interpolation</a></li>

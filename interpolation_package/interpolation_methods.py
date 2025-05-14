@@ -10,38 +10,34 @@ def linear_interpolation(x, y, x_new):
     x : array_like
         Одномерный массив узлов интерполяции (отсортирован по возрастанию).
     y : array_like
-        Одномерный массив значений функции в узлах (x, y).
+        Значения функции в узлах (x, y).
     x_new : float или array_like
         Точки, в которых нужно вычислить интерполированное значение.
 
     Возвращает:
     -------
     float или numpy.ndarray
-        Значение(я) интерполяционного полинома в точках x_new.
-        Если x_new — скаляр, возвращает скаляр; если массив, то numpy.ndarray.
-
-    Примечание:
-    Если x_new выходит за пределы x, результат будет экстраполирован,
-    опираясь на крайние интервалы.
+        Интерполированные значения в точках x_new.
     """
-    x_new_arr = np.array(x_new, ndmin=1, copy=False)
-    y_new_arr = np.zeros_like(x_new_arr, dtype=float)
+    x_new_arr = np.atleast_1d(x_new)
+    y_new_arr = np.empty_like(x_new_arr, dtype=float)
 
-    for i, x_val in enumerate(x_new_arr):
-        if x_val <= x[0]:
-            y_new_arr[i] = y[0]
-            continue
+    # Определяем интервалы с помощью np.searchsorted
+    indices = np.searchsorted(x, x_new_arr, side="right") - 1
+    indices = np.clip(indices, 0, len(x) - 2)
 
-        if x_val >= x[-1]:
-            y_new_arr[i] = y[-1]
-            continue
+    x0, x1 = x[indices], x[indices + 1]
+    y0, y1 = y[indices], y[indices + 1]
 
-        # Линейный поиск интервала [x[k], x[k+1]]
-        for k in range(len(x) - 1):
-            if x[k] <= x_val < x[k + 1]:
-                t = (x_val - x[k]) / (x[k + 1] - x[k])
-                y_new_arr[i] = y[k] + t * (y[k + 1] - y[k])
-                break
+    # Предотвращаем деление на ноль, если x0 == x1
+    with np.errstate(divide="ignore", invalid="ignore"):
+        t = np.where(x1 != x0, (x_new_arr - x0) / (x1 - x0), 0.0)
+
+    y_new_arr = y0 + t * (y1 - y0)
+
+    # Корректируем граничные значения явно
+    y_new_arr[x_new_arr <= x[0]] = y[0]
+    y_new_arr[x_new_arr >= x[-1]] = y[-1]
 
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
 
