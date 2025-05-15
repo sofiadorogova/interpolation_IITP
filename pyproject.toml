@@ -38,13 +38,14 @@ sphinx = "^7.2.6"
 myst-parser = "^2.0.0"
 sphinx-click = "^3.1.0"
 mypy = "^1.10.0"
+monkeytype = "^23.3.0"
 
 [tool.poetry.scripts]
 interp-demo = "interpolation_package.cli_interpolation:main"
 measure-performance = "scripts.performance_measure:main"
 
 [tool.ruff]
-select = ["E", "F", "B", "I", "C90"]
+select = ["E", "F", "B", "I", "C90", "ANN"]
 ignore = []
 fixable = ["ALL"]
 line-length = 88

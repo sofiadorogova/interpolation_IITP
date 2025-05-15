@@ -3,7 +3,7 @@ import numpy as np
 from interpolation_package.interpolation_methods import nearest_neighbor_interpolation
 
 
-def test_nearest_basic():
+def test_nearest_basic() -> None:
     """
     Проверка в простом случае из 2-х точек.
     """
@@ -16,7 +16,7 @@ def test_nearest_basic():
     assert nearest_neighbor_interpolation(x, y, 6) == 100
 
 
-def test_nearest_on_exact_points():
+def test_nearest_on_exact_points() -> None:
     """
     Если x_new совпадает ровно с одной из исходных точек,
     то результат должен быть y этой точки.
@@ -29,7 +29,7 @@ def test_nearest_on_exact_points():
     assert nearest_neighbor_interpolation(x, y, 10) == 100
 
 
-def test_nearest_array_input():
+def test_nearest_array_input() -> None:
     """
     Проверяем работу с массивом x_new (несколько точек).
     """
@@ -46,7 +46,7 @@ def test_nearest_array_input():
     assert np.allclose(result, expected)
 
 
-def test_nearest_more_points():
+def test_nearest_more_points() -> None:
     """
     Больше точек в x, проверяем 'ступенчатость' результата.
     """

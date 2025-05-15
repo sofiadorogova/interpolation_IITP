@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def linear_interpolation(x, y, x_new):
+def linear_interpolation(x: np.ndarray, y: np.ndarray, x_new: np.ndarray) -> np.ndarray:
     """
     Линейная интерполяция.
 
@@ -42,7 +42,9 @@ def linear_interpolation(x, y, x_new):
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
 
 
-def nearest_neighbor_interpolation(x, y, x_new):
+def nearest_neighbor_interpolation(
+    x: np.ndarray, y: np.ndarray, x_new: np.ndarray
+) -> np.ndarray:
     """
     Интерполяция методом ближайшего соседа.
 
@@ -71,7 +73,9 @@ def nearest_neighbor_interpolation(x, y, x_new):
     return y_new_arr[0] if np.isscalar(x_new) else y_new_arr
 
 
-def lagrange_interpolation(x, y, x_new):
+def lagrange_interpolation(
+    x: np.ndarray, y: np.ndarray, x_new: np.ndarray
+) -> np.ndarray:
     """
     Интерполяция методом Лагранжа.
 

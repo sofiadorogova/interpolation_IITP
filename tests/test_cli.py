@@ -7,7 +7,7 @@ from click.testing import CliRunner
 from interpolation_package.cli_interpolation import main
 
 
-def test_cli_linear():
+def test_cli_linear() -> None:
     runner = CliRunner()
     output_path = "tests/test_linear_output.png"
     result = runner.invoke(
@@ -25,7 +25,7 @@ def test_cli_linear():
     os.remove(output_path)
 
 
-def test_cli_lagrange():
+def test_cli_lagrange() -> None:
     runner = CliRunner()
     output_path = "tests/test_lagrange_output.png"
     result = runner.invoke(
@@ -38,7 +38,7 @@ def test_cli_lagrange():
     os.remove(output_path)
 
 
-def test_cli_nearest():
+def test_cli_nearest() -> None:
     runner = CliRunner()
     output_path = "tests/test_nearest_output.png"
     result = runner.invoke(

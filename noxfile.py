@@ -29,11 +29,11 @@ def format(session: Session) -> None:
 def lint(session: Session) -> None:
     """Проверка и автоматическое исправление стиля кода."""
     session.install("ruff")
-    session.run("ruff", "check", "--fix", *LOCATIONS)
+    session.run("ruff", "check", "--fix", "--unsafe-fixes", *LOCATIONS)
 
 
 @session(python="3.10")
-def tests(session):
+def tests(session: Session) -> None:
     """Запуск всех тестов"""
     session.run(
         "pytest",
@@ -47,7 +47,7 @@ def tests(session):
 
 
 @nox.session(python="3.10")
-def coverage_report(session):
+def coverage_report(session: Session) -> None:
     """Генерация отчета по покрытию тестов"""
     session.install("coverage[toml]")
     session.run("coverage", "report", "-m")
@@ -69,3 +69,10 @@ def typechecks(session: Session) -> None:
     session.install("mypy")
     session.install(".")
     session.run("mypy", "--explicit-package-bases", PACKAGE)
+
+@session(python="3.10")
+def auto_type(session: Session) -> None:
+    """Автоматическое добавление аннотаций типов с помощью MonkeyType."""
+    session.install("monkeytype", "pytest", ".")
+    session.run("monkeytype", "run", "-m", "pytest", TEST_DIR)
+    session.run("monkeytype", "apply", PACKAGE)

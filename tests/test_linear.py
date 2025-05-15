@@ -4,7 +4,7 @@ import pytest
 from interpolation_package.interpolation_methods import linear_interpolation
 
 
-def test_linear_basic():
+def test_linear_basic() -> None:
     """
     Проверяем, что на участке [0, 10], где y = x,
     линейная интерполяция даёт верное значение в середине.
@@ -14,7 +14,7 @@ def test_linear_basic():
     assert linear_interpolation(x_vals, y_vals, 5) == 5
 
 
-def test_linear_multiple_points():
+def test_linear_multiple_points() -> None:
     """
     Проверяем интерполяцию для массива x_new
     """
@@ -27,7 +27,7 @@ def test_linear_multiple_points():
     assert np.allclose(result, expected)
 
 
-def test_linear_out_of_bounds_left():
+def test_linear_out_of_bounds_left() -> None:
     """
     Если x_new < x_vals[0], наша реализация берёт y = y_vals[0].
     """
@@ -36,7 +36,7 @@ def test_linear_out_of_bounds_left():
     assert linear_interpolation(x_vals, y_vals, 0) == 2
 
 
-def test_linear_out_of_bounds_right():
+def test_linear_out_of_bounds_right() -> None:
     """
     Если x_new > x_vals[-1], берём y = y_vals[-1].
     """
@@ -45,7 +45,7 @@ def test_linear_out_of_bounds_right():
     assert linear_interpolation(x_vals, y_vals, 10) == 4
 
 
-def test_linear_in_the_middle():
+def test_linear_in_the_middle() -> None:
     """
     Дополнительно проверяем интерполяцию где x_new внутри промежутка,
     но не ровно посередине.
@@ -60,7 +60,7 @@ def test_linear_in_the_middle():
     )
 
 
-def test_linear_interpolation_middle_interval():
+def test_linear_interpolation_middle_interval() -> None:
     """
     Проверяем линейную интерполяцию, когда x_new попадает в середину массива узлов.
 
@@ -87,7 +87,7 @@ def test_linear_interpolation_middle_interval():
     assert result == expected_result
 
 
-def test_linear_interpolation_invalid_interval():
+def test_linear_interpolation_invalid_interval() -> None:
     """
     Проверяем поведение при некорректном массиве x (повторяющиеся значения).
     Ожидаем, что цикл завершится без нахождения интервала.

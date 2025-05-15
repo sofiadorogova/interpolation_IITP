@@ -16,7 +16,14 @@ from interpolation_package.interpolation_methods import (
 )
 
 
-@click.command()
+@click.command(help="""
+CLI tool for data interpolation and plotting.
+
+Usage example:
+
+\b
+python your_script.py --method linear --n_points 100 --output images/result.png
+""")
 @click.option(
     "--method",
     type=click.Choice(["linear", "nearest", "lagrange"], case_sensitive=False),
@@ -34,7 +41,7 @@ from interpolation_package.interpolation_methods import (
     default="images/interpolation_cli_result.png",
     help="File path to save the resulting plot.",
 )
-def main(method, n_points, output):
+def main(method: str, n_points: int, output: str) -> None:
     x_vals = np.array([0, 2, 4, 6, 8, 10], dtype=float)
     y_vals = np.sin(x_vals)
 

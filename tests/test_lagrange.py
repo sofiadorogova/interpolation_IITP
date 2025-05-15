@@ -4,7 +4,7 @@ import pytest
 from interpolation_package.interpolation_methods import lagrange_interpolation
 
 
-def test_lagrange_two_points():
+def test_lagrange_two_points() -> None:
     """
     Если у нас всего 2 точки, лагранжев многочлен -
     это просто прямая между этими точками.
@@ -17,7 +17,7 @@ def test_lagrange_two_points():
     assert lagrange_interpolation(x, y, 10) == pytest.approx(10.0)
 
 
-def test_lagrange_three_points():
+def test_lagrange_three_points() -> None:
     """
     Проверка с 3 точками. Допустим, функция y = x^2
     в точках x = [0, 1, 2].
@@ -30,7 +30,7 @@ def test_lagrange_three_points():
     assert result == pytest.approx(2.25, 0.0001)
 
 
-def test_lagrange_array_input():
+def test_lagrange_array_input() -> None:
     """
     Проверяем подачу массива x_new (несколько точек).
     Допустим, синус в 5 точках. Функция должна пройти точно через эти точки.
@@ -46,7 +46,7 @@ def test_lagrange_array_input():
     assert np.allclose(result, expected)
 
 
-def test_lagrange_out_of_bounds():
+def test_lagrange_out_of_bounds() -> None:
     """
     Лагранжева интерполяция не имеет встроенного механизма 'краевых значений',
     но мы можем проверить, что она экстраполирует по полиному.
